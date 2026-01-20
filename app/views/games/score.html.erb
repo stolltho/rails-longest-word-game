@@ -1,6 +1,12 @@
-<h1>Result</h1>
+<div class="text-center">
+  <h1 class="mb-4">Result</h1>
 
-<p><%= @score %></p>
+  <div class="alert alert-info fs-4 mx-auto" style="max-width: 600px;">
+    <%= @score %>
+  </div>
 
-
-<%= link_to "Play again", new_path %>
+  <div class="d-flex gap-3 justify-content-center flex-wrap">
+    <%= link_to "Play again", new_path, class: "btn btn-primary btn-lg" %>
+    <%= button_to "Reset Score", reset_score_path, method: :post, class: "btn btn-warning btn-lg" %>
+  </div>
+</div>

@@ -1,21 +1,27 @@
-<h1>New Game</h1>
+<div class="text-center">
+  <h1 class="mb-4">New Game</h1>
 
-<ul>
-  <% @letters.each do |letter| %>
-    <li><%= letter %></li>
-    <br>
-  <% end %>
-</ul>
+  <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+    <% @letters.each do |letter| %>
+      <div class="bg-primary text-white fw-bold fs-3 px-4 py-3 rounded">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
 
-<form action="/score" method="POST" data-turbo="false">
-  <label for="game">What is the longest word you can find?</label>
-  <input type="text" id="game" name="word">
+  <div class="card mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+      <form action="/score" method="POST" data-turbo="false">
+        <div class="mb-3">
+          <label for="game" class="form-label fs-5">What is the longest word you can find?</label>
+          <input type="text" id="game" name="word" class="form-control form-control-lg text-uppercase" autofocus>
+        </div>
 
-  <!-- IMPORTANT: pass the letters -->
-  <input type="hidden" name="letters" value="<%= @letters.join(' ') %>">
-  
-  <!-- CSRF token -->
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="letters" value="<%= @letters.join(' ') %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-  <input type="submit" value="Play">
-</form>
+        <button type="submit" class="btn btn-success btn-lg w-100">Play</button>
+      </form>
+    </div>
+  </div>
+</div>
