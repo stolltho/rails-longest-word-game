@@ -4,7 +4,7 @@
   <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
     <% @letters.each do |letter| %>
       <div class="bg-primary text-white fw-bold fs-3 px-4 py-3 rounded">
-        <%= letter %>
+        <li style="list-style: none;"><%= letter %></li>
       </div>
     <% end %>
   </div>
@@ -14,7 +14,7 @@
       <form action="/score" method="POST" data-turbo="false">
         <div class="mb-3">
           <label for="game" class="form-label fs-5">What is the longest word you can find?</label>
-          <input type="text" id="game" name="word" class="form-control form-control-lg text-uppercase" autofocus>
+          <input type="text" id="game" name="word" class="form-control form-control-lg" autofocus>
         </div>
 
         <input type="hidden" name="letters" value="<%= @letters.join(' ') %>">
